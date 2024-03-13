@@ -1,17 +1,18 @@
 package com.example.example.data.network
 
-import com.example.example.core.RetrofitHelper
 import com.example.example.data.model.QuoteModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.create
+import javax.inject.Inject
 
-class QuoteService {
-    private val retrofit = RetrofitHelper.getRetrofit()
+class QuoteService @Inject constructor(
+    private val api: QuoteApiClient
+) {
     suspend fun getQuotes(): List<QuoteModel> {
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(QuoteApiClient::class.java).getAllQuotes()
-            response
+            val response = api.getAllQuotes()
+            response.body() ?: emptyList()
         }
 
     }

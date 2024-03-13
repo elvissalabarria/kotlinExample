@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-//    alias(libs.plugins.kotlinKapt)
-
+    id ("kotlin-kapt")
+    id ("dagger.hilt.android.plugin")
+    id ("kotlin-android")
 }
 
 android {
@@ -37,32 +38,38 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding =true
+    }
+
+
+    dependencies {
+
+        implementation(libs.androidx.core.ktx)
+        implementation(libs.androidx.appcompat)
+        implementation(libs.material)
+        implementation(libs.androidx.constraintlayout)
+        implementation(libs.androidx.lifecycle.livedata.ktx)
+        implementation(libs.androidx.lifecycle.viewmodel.ktx)
+        implementation(libs.androidx.navigation.ui.ktx)
+        implementation(libs.androidx.activity.ktx)
+
+        //retrofit
+        implementation(libs.retrofit.retrofit)
+        implementation(libs.retrofit.converter.gson)
+
+        //coroutines
+        implementation(libs.kotlinx.coroutines.android)
+        implementation(libs.kotlinx.coroutines.core)
+
+        //Dagger - Hilt
+        implementation (libs.dagger.hilt.android)
+        kapt (libs.dagger.hilt.compiler)
+
+        testImplementation(libs.junit.v412)
+        testImplementation(libs.junit)
+        testImplementation(libs.mockk)
+        androidTestImplementation(libs.androidx.junit)
+        androidTestImplementation(libs.androidx.espresso.core)
     }
 }
 
-dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-
-    //retrofit
-    implementation(libs.retrofit.retrofit)
-    implementation(libs.retrofit.converter.gson)
-
-    //coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-
-    //dagger hilt
-    implementation(libs.dagger.hilt.android)
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-}
