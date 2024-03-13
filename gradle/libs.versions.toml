@@ -24,6 +24,10 @@ navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
 retrofit = "2.9.0"
 dagger = "2.48.1"
+roomCompiler = "2.6.1"
+roomCompilerVersion = "2.2.1"
+roomCoroutines = "2.4.0-alpha03"
+roomRuntime = "2.3.0"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
@@ -31,6 +35,11 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-hilt-lifecycle-viewmodel = { module = "androidx.hilt:hilt-lifecycle-viewmodel", version.ref = "hiltLifecycleViewmodel" }
 androidx-lifecycle-livedata-ktx-v231 = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtxVersion" }
 androidx-lifecycle-viewmodel-ktx-v231 = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtxVersion" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+androidx-room-compiler-v221 = { module = "androidx.room:room-compiler", version.ref = "roomCompilerVersion" }
+androidx-room-coroutines = { module = "androidx.room:room-coroutines", version.ref = "roomCoroutines" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomCompiler" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltCompilerVersion" }
 hilt-compiler = { module = "dagger.hilt.android:hilt-compiler", version.ref = "hiltCompiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

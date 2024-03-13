@@ -1,9 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id ("kotlin-kapt")
-    id ("dagger.hilt.android.plugin")
-    id ("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-android")
 }
 
 android {
@@ -38,7 +38,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
-        dataBinding =true
+        dataBinding = true
     }
 
 
@@ -62,9 +62,16 @@ android {
         implementation(libs.kotlinx.coroutines.core)
 
         //Dagger - Hilt
-        implementation (libs.dagger.hilt.android)
-        kapt (libs.dagger.hilt.compiler)
+        implementation(libs.dagger.hilt.android)
+        kapt(libs.dagger.hilt.compiler)
 
+        //room
+//        implementation (libs.androidx.room.coroutines)
+        implementation(libs.androidx.room.runtime)
+        kapt(libs.androidx.room.compiler)
+        implementation(libs.androidx.room.ktx)
+        kapt(libs.androidx.room.compiler.v221)
+        //testing
         testImplementation(libs.junit.v412)
         testImplementation(libs.junit)
         testImplementation(libs.mockk)
