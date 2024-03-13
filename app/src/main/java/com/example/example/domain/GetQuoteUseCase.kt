@@ -12,10 +12,9 @@ class GetQuoteUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(): List<Quote> {
 
-
         val quotes = repository.getAllQuotesFromApi()
        return  if (quotes.isNotEmpty()) {
-repository.clearQuotes()
+//            repository.clearQuotes()
             repository.insertQuotes(quotes.map { it.toDatabase() })
        quotes
        } else {
