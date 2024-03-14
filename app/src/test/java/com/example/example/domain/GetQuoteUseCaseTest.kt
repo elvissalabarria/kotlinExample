@@ -9,7 +9,6 @@ import org.junit.Before
 
 class GetQuoteUseCaseTest {
     @RelaxedMockK
-
     private lateinit var repository: QuoteRepository
     lateinit var getQuoteUseCase: GetQuoteUseCase
     @Before

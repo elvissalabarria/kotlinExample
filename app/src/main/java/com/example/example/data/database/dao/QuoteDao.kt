@@ -16,5 +16,5 @@ interface QuoteDao {
     suspend fun insertAll(quote: List<QuoteEntity>)
 
     @Query("DELETE FROM quote_table")
-    fun deleteAllQuotes()
+   suspend fun deleteAllQuotes()
 }
